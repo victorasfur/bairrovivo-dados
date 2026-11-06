@@ -1,0 +1,25 @@
+# Segredos e ambiente
+.env
+*.pem
+*.key
+
+# Airflow (docker)
+logs/
+plugins/
+config/
+airflow.db
+airflow-webserver.pid
+
+# Arquivos de chegada: gerados pelo DAG. Só amostras/ vai para o GitHub.
+chegada/clima/*.json
+chegada/ocorrencias/*.json
+
+# Python / IDE
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.idea/
+.vscode/
+spark-warehouse/
+metastore_db/

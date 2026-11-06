@@ -1,0 +1,17 @@
+# Complemento ao docker-compose.yaml OFICIAL do Airflow (veja README, passo 4).
+# O Docker Compose junta este arquivo ao docker-compose.yaml automaticamente.
+# Efeito: a pasta ./chegada do seu computador aparece dentro dos containers do Airflow
+# em /opt/airflow/chegada, que é onde o DAG grava os arquivos.
+x-bairrovivo: &bairrovivo
+  environment:
+    CHEGADA_DIR: /opt/airflow/chegada
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"   # esconde os DAGs de exemplo
+  volumes:
+    - ./chegada:/opt/airflow/chegada
+
+services:
+  airflow-scheduler: *bairrovivo
+  airflow-dag-processor: *bairrovivo
+  airflow-worker: *bairrovivo
+  airflow-triggerer: *bairrovivo
+  airflow-apiserver: *bairrovivo

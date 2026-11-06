@@ -1,0 +1,3 @@
+# Só para rodar scripts e testes fora do Airflow. O Airflow vem da imagem Docker oficial.
+requests>=2.31
+pytest>=8.0
